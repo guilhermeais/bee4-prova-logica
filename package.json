@@ -1,0 +1,22 @@
+{
+  "name": "bee4-prova-logica",
+  "version": "1.0.0",
+  "description": "## Introdução",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "sh run-all-tests.sh",
+    "tarefa1": "node ./TAREFA1/program.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guilhermeais/bee4-prova-logica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guilhermeais/bee4-prova-logica/issues"
+  },
+  "homepage": "https://github.com/guilhermeais/bee4-prova-logica#readme"
+}
