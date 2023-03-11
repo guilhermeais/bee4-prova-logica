@@ -1,12 +1,12 @@
 import { join } from 'path'
 import * as url from 'url'
-import { CSVFile } from '../utils/csv-file.js'
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
+import { CSVFile } from '../utils/csv-file.js'
 
 export class Program {
   /**
    *
-   * @param {import('../utils/csv-file').CSVFile} csvFileHandler /
+   * @param {import('../utils/csv-file').CSVFile} csvFileHandler
    */
   constructor(csvFileHandler) {
     this.csvFileHandler = csvFileHandler

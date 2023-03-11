@@ -7,16 +7,12 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
 
 ;(async () => {
   {
-    console.info('[TAREFA1] should multiply all population by two')
-    const csvFileHandler = new CSVFile()
     let writeCSVFileContent = null
-
-    Reflect.defineProperty(csvFileHandler, 'writeCSVFile', {
-      value: (filepath, content) => {
-        writeCSVFileContent = content
-        return Promise.resolve()
-      },
-    })
+    CSVFile.prototype.writeCSVFile = (filepath, content) => {
+      writeCSVFileContent = content
+      return Promise.resolve()
+    }
+    const csvFileHandler = new CSVFile()
 
     const sut = new Program(csvFileHandler)
 
@@ -34,9 +30,9 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
     deepStrictEqual(
       writeCSVFileContent,
       expectedResponse,
-      '[TAREFA1] should multiply all population by two'
+      '[TAREFA1] x should multiply all population by two'
     )
 
-    console.info('OK!')
+    console.info('[TAREFA1] ✔️ should multiply all population by two')
   }
 })()

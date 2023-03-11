@@ -6,7 +6,6 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
 
 ;(async () => {
   {
-    console.info('[CSVFile] should parse a CSV file to JSON')
     const filepath = join(__dirname, './../tests/mocks/csv/mapa.valid.csv')
     const options = {
       fields: ['Local', 'População no último censo'],
@@ -32,13 +31,13 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
     deepStrictEqual(
       response,
       expectedResponse,
-      '[CSVFile] should parse a CSV file to JSON'
+      '[CSVFile] x should parse a CSV file to JSON'
     )
-    console.info('OK!')
+
+    console.info('[CSVFile] ✔️ should parse a CSV file to JSON')
   }
 
   {
-    console.info('[CSVFile] should parse a JSON to CSV')
     const options = {
       mapFields: {
         local: 'Local',
@@ -69,14 +68,13 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
     equal(
       response.trim(),
       expectedResponse.trim(),
-      '[CSVFile] should parse a JSON file to CSV'
+      '[CSVFile] x should parse a JSON file to CSV'
     )
-    console.info('OK!')
+
+    console.info('[CSVFile] ✔️ should parse a JSON file to CSV')
   }
 
   {
-    console.info('[CSVFile] shoud find all possible headers from JSON')
-
     const mockedJSON = [
       {
         local: 'Angra dos Reis',
@@ -97,9 +95,9 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
     deepStrictEqual(
       response,
       expectedResponse,
-      '[CSVFile] shoud find all possible headers from JSON'
+      '[CSVFile] x shoud find all possible headers from JSON'
     )
 
-    console.info('OK!')
+    console.info('[CSVFile] ✔️ should find all possible headers from JSON')
   }
 })()
