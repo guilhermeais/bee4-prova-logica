@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "sh run-all-tests.sh",
-    "tarefa1": "node ./TAREFA1/program.js"
+    "tarefa1": "node ./TAREFA1/program.js",
+    "tarefa2": "node ./TAREFA2/program.js"
   },
   "repository": {
     "type": "git",
