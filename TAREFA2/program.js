@@ -63,5 +63,3 @@ export class Program {
     await program.main()
   }
 }
-
-Program.run()
