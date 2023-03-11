@@ -22,7 +22,7 @@ export class Program {
 
   async main({ filepath = join(__dirname, './../CEPs.csv') } = {}) {
     console.info('Iniciando tarefa 3...')
-    const addressesWithoutCep = await this.csvFileHandler.csvToJSON(filepath, {
+    const incompleteAddresses = await this.csvFileHandler.csvToJSON(filepath, {
       fields: [
         'CEP',
         'Logradouro',
@@ -36,8 +36,8 @@ export class Program {
       ],
     })
 
-    const addressesWithCep = await Promise.all(
-      addressesWithoutCep.map(async address => {
+    const completedAddresses = await Promise.all(
+      incompleteAddresses.map(async address => {
         address.CEP = this.normalizeCEP(address.CEP.toString())
         try {
           console.info(`Buscando CEP para o endereço ${address.CEP}...`)
@@ -73,11 +73,11 @@ export class Program {
       })
     )
 
-    const addressessWithCepCSV =
-      this.csvFileHandler.parseJSONToCSV(addressesWithCep)
+    const completedAddressesCSV =
+      this.csvFileHandler.parseJSONToCSV(completedAddresses)
 
     const newFilepath = join(__dirname, './../results/CEPs-with-address.csv')
-    await this.csvFileHandler.writeCSVFile(newFilepath, addressessWithCepCSV)
+    await this.csvFileHandler.writeCSVFile(newFilepath, completedAddressesCSV)
 
     console.info('Tarefa 3 finalizada com sucesso!')
     console.info(`Arquivo gerado com sucesso em: ${newFilepath}`)
