@@ -29,7 +29,6 @@ export class ViaCepCepService extends CepService {
     if (isClientError) {
       throw new Error(errors.INVALID_CEP)
     }
-    console.info('viaCepCepService: ', data)
 
     const address = new Address({
       cep: data.cep,
