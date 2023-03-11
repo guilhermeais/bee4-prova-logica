@@ -1,5 +1,5 @@
 import { readFile, writeFile } from 'fs/promises'
-import { errors } from './contants/errors.js'
+import { errors } from './constants/errors.js'
 
 export class CSVFile {
   async readCSVFile(path, options = { fields: [] }) {
@@ -96,13 +96,14 @@ export class CSVFile {
 
         const value = rows[columnIndex].replace(/"/g, '').trim()
 
-        if (options.mapFields[column]) {
+        if (options?.mapFields?.[column]) {
           column = options.mapFields[column]
         }
 
         if (value) {
           const isNumber = !isNaN(value)
-          csvAsJSON[column] = typeof value === 'string' && !isNumber ? value : parseInt(value)
+          csvAsJSON[column] =
+            typeof value === 'string' && !isNumber ? value : parseInt(value)
         }
       }
 
@@ -115,7 +116,8 @@ export class CSVFile {
   isValid(csvString, options = { fields: [] }) {
     const [header] = csvString.split('\n')
     const isHeaderValid =
-      header === options.fields.map(field => `"${field}"`).join('; ')
+      header === options.fields.map(field => `"${field}"`).join('; ') ||
+      header === options.fields.join(';')
 
     if (!isHeaderValid) {
       return {
