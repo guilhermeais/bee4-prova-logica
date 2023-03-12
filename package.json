@@ -5,10 +5,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "sh run-all-tests.sh",
+    "test": "node ./run-all-tests.js",
     "tarefa1": "node ./TAREFA1/index.js",
     "tarefa2": "node ./TAREFA2/index.js",
-    "tarefa3": "node ./TAREFA3/index.js"
+    "tarefa3": "node ./TAREFA3/index.js",
+    "test:docker": "docker compose up test",
+    "tarefa1:docker": "docker compose up task1",
+    "tarefa2:docker": "docker compose up task2",
+    "tarefa3:docker": "docker compose up task3"
   },
   "repository": {
     "type": "git",
@@ -22,6 +26,7 @@
   },
   "homepage": "https://github.com/guilhermeais/bee4-prova-logica#readme",
   "dependencies": {
-    "axios": "^1.3.4"
+    "axios": "^1.3.4",
+    "glob": "^9.2.1"
   }
 }
