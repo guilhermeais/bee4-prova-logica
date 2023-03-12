@@ -1,47 +1,22 @@
-# Teste prático - Lógica
+# Como Rodar
 
-## Introdução
+A aplicação pode ser rodada tanto pelo Docker quanto localmente, caso for rodar localmente e esteja no Windows indico utilizar algum bash, como do Git.
 
-Este é um teste que aplicamos na seleção de novos desenvolvedores.
+## Comandos
+**Locais:**
 
-Faça um fork desse repositório e acrescente o código. Crie uma pasta para cada solução. Depois disso nos passe o endereço do seu repositório no github para verificação.
+Lembre-se de rodar o comando `npm i` para instalar as dependencias
+- `npm run test`: Roda todos arquivos de testes que contenham `.spec.js`;`
+    Esses testes foram desenvolvidos totalmente com os módulos nativos do Node.
+- `npm run tarefa1`: Roda a **tarefa 1**, será gerado o resultado em CSV na pasta **results**;
+- `npm run tarefa2`: Roda a **tarefa 2**, será gerado o resultado em CSV na pasta **results**;
+- `npm run tarefa3`: Roda a **tarefa 3**, será gerado o resultado em CSV na pasta **results**;
 
-Você pode utilizar as seguintes linguagens pra resolução dos problemas: Node, Java, CSharp, Javascript, C ou Python
+**Docker:**
 
-## Escopo
-
-Realize as seguintes tarefas:
-
-1 - Crie um programa que multiplique a coluna _"População no último censo"_ do arquivo _"mapa.csv"_ por 2 e grave uma cópia do arquivo alterado.
-
-2 - Crie um programa que reordene o arquivo _"mapa.csv"_ pela coluna _"População no último censo"_ do arquivo, usando bubblesort, e grave uma cópia do arquivo alterado.
-
-3 - Preencha o endereco no arquivo _"CEPs.csv"_ lendo a coluna de cep e buscando na API viacep (https://viacep.com.br/) o endereço equivalente ao CEP e grave uma cópia do arquivo preenchido.
-
-## Resultado
-
-Estrutura da solução (PASTAS):
-
-```
-    TAREFA1
-        Program.cs (ou arquivos da linguagem escolhida)
-    TAREFA2
-        Program.cs (ou arquivos da linguagem escolhida)
-    TAREFA3
-        Program.cs (ou arquivos da linguagem escolhida)
-```
-
-O que avaliamos:
-
-- Qualidade de código
-- Código limpo
-- Simplicidade
-- Lógica de programação
-- Conceitos de orientação a objetos
-- Otimização do código implementado
-- Organização e padrão de Commits
-
-## Dúvidas
-
-Fique a vontade para nos procurar, o RH vai mandar o contato para dúvidas
-Nos diga o que achou do teste
+Os mesmos comandos podem ser rodados em um container no **docker**, adicionando o préfixo `:docker` nos comandos
+- `npm :dockerrun test`: Roda todos arquivos de testes que contenham `.spec.js`;`
+    Esses testes foram desenvolvidos totalmente com os módulos nativos do Node.
+- `npm run tarefa1:docker`: Roda a **tarefa 1**, será gerado o resultado em CSV na pasta **results**;
+- `npm run tarefa2:docker`: Roda a **tarefa 2**, será gerado o resultado em CSV na pasta **results**;
+- `npm run tarefa3:docker`: Roda a **tarefa 3**, será gerado o resultado em CSV na pasta **results**;
