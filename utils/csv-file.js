@@ -114,7 +114,7 @@ export class CSVFile {
   }
 
   isValid(csvString, options = { fields: [] }) {
-    const [header] = csvString.split('\n')
+    const [header] = csvString.replace('\r', '').split('\n')
     const isHeaderValid =
       header === options.fields.map(field => `"${field}"`).join('; ') ||
       header === options.fields.join(';')
