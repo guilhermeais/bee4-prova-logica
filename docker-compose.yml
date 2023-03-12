@@ -1,0 +1,30 @@
+version: '3.0'
+services:
+  test:
+      image: node:alpine
+      volumes:
+        - ./:/usr/src/app
+        - /usr/src/app/node_modules
+      working_dir: /usr/src/app
+      command: sh -c "npm i --silent && npm t"
+  task1:
+    image: node:alpine
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
+    command: sh -c "npm i --silent && npm run tarefa1"
+  task2:
+    image: node:alpine
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
+    command: sh -c "npm i --silent && npm run tarefa2"
+  task3:
+    image: node:alpine
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
+    command: sh -c "npm i --silent && npm run tarefa3"
